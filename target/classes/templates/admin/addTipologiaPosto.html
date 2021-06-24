@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles(pageTitle=#{page.addTipologiaPosto.head.title})"> </head>
+	<body>
+	
+		<div th:replace="fragments/base.html :: logo" />
+	    
+	    <div class="container">
+	    	
+	    	<div class="panel ">
+		    	<h1 class="title" th:text="#{admin.addTipologiaPosto.title}">Biglietteria</h1>
+		    	
+		    	<form th:action="@{/admin/addTipologiaPosto}" method="POST">
+                
+                	<div class="bggrey bordered partecipazioniBand">
+                	
+			    		<span class="loginFormFieldName" th:text="#{admin.addTipologiaPosto.field.nome}" />
+			    		<input type="text" class="loginFormFieldInput" th:field="${tipologiaPosto.nome}" th:attr="placeholder=#{admin.addTipologiaPosto.hint.nome}" required /><br><br>
+			    		<p class="bgred bordered" th:each="error: ${#fields.errors('tipologiaPosto.nome')}" th:text="${error}">Errore</p>
+			    		
+			    		<span class="loginFormFieldName" th:text="#{admin.addTipologiaPosto.field.descrizione}" />
+			    		<input type="text" class="loginFormFieldInput" th:field="${tipologiaPosto.descrizione}" th:attr="placeholder=#{admin.addTipologiaPosto.hint.descrizione}" /><br><br>
+			    		<p class="bgred bordered" th:each="error: ${#fields.errors('tipologiaPosto.descrizione')}" th:text="${error}">Errore</p>
+			    		
+			    		<span class="loginFormFieldName" th:text="#{admin.addTipologiaPosto.field.maxPostiRealiDisponibili}" />
+			    		<input type="number" class="loginFormFieldInput" th:field="${tipologiaPosto.maxPostiRealiDisponibili}" th:attr="placeholder=#{admin.addTipologiaPosto.hint.maxPostiRealiDisponibili}" required /><br><br>
+			    		<p class="bgred bordered" th:each="error: ${#fields.errors('tipologiaPosto.maxPostiRealiDisponibili')}" th:text="${error}">Errore</p>
+			    		
+			    		<span class="loginFormFieldName" th:text="#{admin.addTipologiaPosto.field.percentualeOverbooking}" />
+			    		<input type="number" class="loginFormFieldInput" th:field="${tipologiaPosto.percentualeOverbooking}" th:attr="placeholder=#{admin.addTipologiaPosto.hint.percentualeOverbooking}" required /><br><br>
+			    		<p class="bgred bordered" th:each="error: ${#fields.errors('tipologiaPosto.percentualeOverbooking')}" th:text="${error}">Errore</p>
+			    		
+			    		<span class="loginFormFieldName" th:text="#{admin.addTipologiaPosto.field.prezzoUnitario}" />
+			    		<input type="text" class="loginFormFieldInput" th:field="${tipologiaPosto.prezzoUnitario}" th:attr="placeholder=#{admin.addTipologiaPosto.hint.prezzoUnitario}" required /><br><br>
+			    		<p class="bgred bordered" th:each="error: ${#fields.errors('tipologiaPosto.prezzoUnitario')}" th:text="${error}">Errore</p>
+			    		
+		    		</div>
+		    		
+		    		<div class="bgpurple partecipazioniBand">
+				    	<h2 class="title" th:text="#{admin.addTipologiaPosto.chooseConcert.title}">Biglietteria</h2>
+						    	
+						<div class="bordered" th:each="concerto : ${concerti}">
+							<div class="partecipazioniElement">
+								<div>
+									<div>
+										<img class="bordered concertoIcon" th:src="@{${concerto.iconaLink}}" alt="icona">
+									</div>
+								    <span class="concertoField" th:text="${concerto.nome}">Concertone</span><br>
+								    <div>
+										<input type="radio" th:id="${concerto.id}" th:value="${concerto.id}" name="concerto" >
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+		    		
+		    		<div class="buttonlist">
+						<button type="submit" class="btn" th:text="#{admin.addBand.confirm}">Registra</button>
+					</div>
+					
+		    	</form>
+	   		</div>
+			
+			<div th:replace="fragments/base.html :: fondo" />
+	    </div>
+	    
+	</body>
+</html>

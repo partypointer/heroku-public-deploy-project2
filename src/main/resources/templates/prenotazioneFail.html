@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="it" xml:lang="it" xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles(pageTitle=#{page.prenotazioneFail.head.title})"> </head>
+	<body>
+	
+		<div th:replace="fragments/base.html :: logo" />
+	    
+	    <div class="container">
+	    	
+	    	<div class="bgred bordered panel">
+		    	<h3 th:text="#{prenotazioneFail.msg}">C'è stato un errore, ci scusiamo per il disagio</h3>
+			    <a th:href="@{/login}">
+					<button class="btn" th:text="#{successfulAdminOperation.areaRiservata}">Home</button>
+				</a>
+	   		</div>
+			
+			<div th:replace="fragments/base.html :: fondo" />
+	    </div>
+	    
+	</body>
+</html>

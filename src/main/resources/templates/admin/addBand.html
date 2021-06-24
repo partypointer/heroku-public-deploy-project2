@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles(pageTitle=#{page.admin.addBand.head.title})"> </head>
+	<body>
+	
+		<div th:replace="fragments/base.html :: logo" />
+	    
+	    <div class="container">
+	    	
+	    	<div class="bggrey bordered panel">
+		    	<h1 class="title" th:text="#{admin.addBand.title}">Biglietteria</h1>
+		    	
+		    	<form th:action="@{/admin/addBand}" method="POST">
+                
+		    		<span class="loginFormFieldName" th:text="#{admin.addBand.field.name}" />
+		    		<input type="text" class="loginFormFieldInput" th:field="${band.nome}" th:attr="placeholder=#{admin.addBand.hint.nome}" required /><br><br>
+		    		<p class="bgred bordered" th:each="error: ${#fields.errors('band.nome')}" th:text="${error}">Errore</p>
+		    		
+		    		<span class="loginFormFieldName" th:text="#{admin.addBand.field.annoFormazione}" />
+		    		<input type="number" class="loginFormFieldInput" th:field="${band.annoFormazione}" th:attr="placeholder=#{admin.addBand.hint.annoFormazione}" required /><br><br>
+		    		<p class="bgred bordered" th:each="error: ${#fields.errors('band.annoFormazione')}" th:text="${error}">Errore</p>
+		    		
+		    		<span class="loginFormFieldName" th:text="#{admin.addBand.field.annoScioglimento}" />
+		    		<input type="number" class="loginFormFieldInput" th:field="${band.annoScioglimento}" th:attr="placeholder=#{admin.addBand.hint.annoScioglimento}" /><br><br>
+		    		<p class="bgred bordered" th:each="error: ${#fields.errors('band.annoScioglimento')}" th:text="${error}">Errore</p>
+		    		
+		    		<span class="loginFormFieldName" th:text="#{admin.addBand.field.descrizione}" />
+		    		<input type="text" class="loginFormFieldInput" th:field="${band.descrizione}" th:attr="placeholder=#{admin.addBand.hint.descrizione}" /><br><br>
+		    		<p class="bgred bordered" th:each="error: ${#fields.errors('band.descrizione')}" th:text="${error}">Errore</p>
+		    		
+		    		<span class="loginFormFieldName" th:text="#{admin.addBand.field.genere}" />
+		    		<input type="text" class="loginFormFieldInput" th:field="${band.genere}" th:attr="placeholder=#{admin.addBand.hint.genere}" required /><br><br>
+		    		<p class="bgred bordered" th:each="error: ${#fields.errors('band.genere')}" th:text="${error}">Errore</p>
+		    		
+		    		<div class="buttonlist">
+						<button type="submit" class="btn" th:text="#{admin.addBand.confirm}">Registra</button>
+					</div>
+					
+		    	</form>
+	   		</div>
+			
+			<div th:replace="fragments/base.html :: fondo" />
+	    </div>
+	    
+	</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="it" xml:lang="it" xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles(pageTitle=#{page.home.default.head.title})"> </head>
+	<body>
+	
+		<div th:replace="fragments/base.html :: logo" />
+	    
+	    <div class="container">
+	    	
+	    	<div class="bgpurple bordered panel">
+		    	<h1 class="title" th:text="|#{home.default.title} ${accountCorrente.username}|"><u>Benvenuto, NomeUtente</u></h1>
+		    	
+		    	<div class="buttonlist">
+					
+					<a th:href="@{/prenotazioni}">
+						<button class="btn" th:text="#{home.default.prenotazioni}">Prenotazioni</button>
+					</a>
+					
+					<a th:href="@{/logout}">
+						<button class="bgred btn" th:text="#{home.default.logout}">Esci</button>
+					</a>
+				</div>
+	   		</div>
+			
+			<div th:replace="fragments/base.html :: fondo" />
+	    </div>
+	    
+	</body>
+</html>

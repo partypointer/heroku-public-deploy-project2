@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="it" xml:lang="it" xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles(pageTitle=#{page.index.head.title})"> </head>
+	<body>
+	
+		<div th:replace="fragments/base.html :: logo" />
+	    
+	    <div class="container">
+	    	
+	    	<div class="bgpurple bordered panel">
+		    	<h1 class="title" th:text="#{index.title}"><u>Biglietteria</u></h1>
+		    	
+		    	<div th:fragment="logo">
+					<a th:href="@{/}">
+						<img class="bigLogo" th:src="@{/images/tickets.png}" alt="logo">
+					</a>
+				</div>
+
+				<h3 class="paragraph" th:text="#{index.paragraph.one}">Paragrafo 1</h3>
+				
+				<h3 class="strongParagraph" th:text="#{index.paragraph.two}">Paragrafo 2</h3>
+				
+				<h3 class="paragraph" th:text="#{index.paragraph.three}">Paragrafo 2</h3>
+
+		    	<div class="buttonlist">
+					<a th:href="@{/login}">
+						<button class="btn" th:text="#{index.login}">Accedi</button>
+					</a>
+					
+					<a th:href="@{/register}">
+						<button class="btn" th:text="#{index.registration}">Registrati</button>
+					</a>
+				</div>
+	   		</div>
+			
+			<div th:replace="fragments/base.html :: fondo" />
+	    </div>
+	    
+	</body>
+</html>

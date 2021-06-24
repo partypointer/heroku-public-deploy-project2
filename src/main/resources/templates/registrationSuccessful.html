@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="it" xml:lang="it" xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles(pageTitle=#{page.registrationSuccessful.head.title})"> </head>
+	<body class="bg2">
+	
+		<div th:replace="fragments/base.html :: logo" />
+	    
+	    <div class="container">
+	    	
+	    	<div class="bgpurple bordered panel">
+		    	<h3 th:text="#{registrationSuccessful.msg}">La registrazione è avvenuta con successo!</h3>
+	   		</div>
+			
+			<div th:replace="fragments/base.html :: fondo" />
+	    </div>
+	    
+	</body>
+</html>

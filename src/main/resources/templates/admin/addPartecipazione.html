@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/base.html :: headerfiles(pageTitle=#{page.admin.addPartecipazione.head.title})"> </head>
+
+<body>
+
+	<div th:replace="fragments/base.html :: logo" />
+
+	<div class="container">
+
+		<form th:action="@{/admin/addPartecipazione}" method="POST">
+
+			<div class="partecipazioniContainer">
+
+						<div class="panel prenotazioniPanel">
+						
+							<div class="bgorange partecipazioniBand">
+								<h2 class="title" th:text="#{admin.addPartecipazione.bands.title}">Band Disponibili</h2>
+		
+								<div class="bordered" th:each="band: ${bands}">
+									<div class="partecipazioniElement" th:if="${#lists.size(bands) > 0}">
+										<div>
+									    	<span class="concertoField" th:text="${band.nome}">Nome della band</span><br>
+									        <div>
+												<input type="radio" th:id="${band.id}" th:value="${band.id}" name="band" >
+											</div>
+										</div>
+									</div>
+							    </div>
+						   	</div>
+					   		
+					    	<div class="bgpurple partecipazioniConcerti">
+				    			<h2 class="title" th:text="#{admin.addPartecipazione.concerti.title}">Biglietteria</h2>
+						    	
+						    	<div class="bordered" th:each="concerto : ${concerti}">
+									<div class="partecipazioniElement">
+										<div>
+											<div>
+												<img class="bordered concertoIcon" th:src="@{${concerto.iconaLink}}" alt="icona">
+											</div>
+								            <span class="concertoField" th:text="${concerto.nome}">Concertone</span><br>
+								            <div>
+												  <input type="radio" th:id="${concerto.id}" th:value="${concerto.id}" name="concerto" >
+											</div>
+										</div>
+									</div>
+						        </div>
+					   		</div>
+					   		
+				   		</div>
+				        
+			    		
+		   			</div>
+					<div class="buttonlist">
+							<button type="submit" class="btn" th:text="#{admin.addBand.confirm}">Registra</button>
+						</div>
+		    	</form>
+	    	
+			<div th:replace="fragments/base.html :: fondo" />
+	    </div>
+	    
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles(pageTitle=#{page.loginForm.head.title})"> </head>
+	<body class="bg1">
+	
+		<div th:replace="fragments/base.html :: logo" />
+	    
+	    <div class="container">
+	    	
+	    	<div class="bggrey bordered panel">
+		    	<h1 class="title" th:text="#{loginForm.title}">Login</h1>
+		    	
+		    	<form th:action="@{/login}" method="POST">
+                
+		    		<span class="loginFormFieldName" th:text="#{registration.field.username}" />
+		    		<input type="text" class="loginFormFieldInput" id="username" name="username" th:attr="placeholder=#{registration.hint.username}" required><br><br>
+		    		
+		    		<span class="loginFormFieldName" th:text="#{registration.field.password}" />
+					<input type="password" class="loginFormFieldInput" id="password" name="password" th:attr="placeholder=#{registration.hint.password}" required><br><br>
+		    		
+		    		<div class="buttonlist">
+						<button type="submit" class="btn" th:text="#{registration.confirm}">Registra</button>
+					</div>
+					
+		    	</form>
+	   		</div>
+			
+			<div th:replace="fragments/base.html :: fondo" />
+	    </div>
+	    
+	</body>
+</html>

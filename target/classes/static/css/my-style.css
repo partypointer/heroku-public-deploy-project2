@@ -1,0 +1,328 @@
+/* --- media --- */
+@media (max-width:980px){
+	:not(body) {
+		/*transform: scale(1.2, 1.2);*/
+	}
+}
+/* --- media --- */
+/* --- fonts --- */
+@font-face {
+	font-family: "Cinzel";
+	src: url(https://fonts.gstatic.com/s/cinzel/v11/8vIU7ww63mVu7gtR-kwKxNvkNOjw-tbnTYk.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Mate SC', bold;
+  src: url(https://fonts.gstatic.com/s/matesc/v11/-nF8OGQ1-uoVr2wKyiY.woff) format('woff');
+}
+
+@font-face{
+	font-family: 'Cutive Mono', monospace;
+	src: url(https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap);
+}
+
+@font-face {
+  font-family: 'Advent Pro';
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/adventpro/v11/V8mCoQfxVT4Dvddr_yOwjVmtLg.woff) format('woff');
+}
+@font-face {
+  font-family: 'Concert One';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/concertone/v11/VEM1Ro9xs5PjtzCu-srDqRTm.woff) format('woff');
+}
+
+/* --- fonts --- */
+/* --- all --- */
+*{
+	font-family: "Advent Pro";
+	font-weight: bold;
+}
+/* --- all --- */
+/* --- colored backgrounds and borders --- */
+.bgwhite{
+	background-color: white;
+}
+.bggold{
+	background-color: rgba(232, 232, 0, 0.5);
+}
+.bgblue{
+	background-color: rgba(0, 128, 255, 0.5);
+}
+.bgred{
+	background-color: rgba(255, 128, 128, 0.5);
+}
+.bggrey{
+	background-color: rgba(128, 128, 128, 0.5);
+}
+.bgpurple{
+	background-color: rgba(128, 128, 192, 0.5);
+}
+.bgInstagramGradient{
+	background: linear-gradient(#e66465, #9198e5);
+}
+.specialBlackWhiteGradient{
+	background: linear-gradient(to left, #333, #333 50%, #eee 75%, #333 75%);
+	-webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.5), rgba(255,255,255,0.5)), linear-gradient(to right, rgba(0,0,0,0.5), rgba(255,255,255,0.5));
+}
+.bgorange{
+	background-color: rgba(255, 95, 17, 0.5);
+}
+
+.bordered{
+	border: 2px solid black;
+}
+
+.underlined{
+	text-decoration: underline;
+}
+/* --- colored backgrounds and borders --- */
+/* --- logical inline structure --- */
+.container{
+	/*flex: auto;*/
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding-top: 6%;
+	vertical-align: middle;
+}
+
+.panel{
+	padding: 2%;
+	justify-content: space-between;
+	text-align: center;
+	border-radius: 7%;
+}
+/* --- logical inline addPartecipazioni structure --- */
+.partecipazioniContainer{
+	display: flexbox;
+	padding: 2%;
+	margin: 2%;
+}
+.partecipazioniConcerti .partecipazioniBands{
+	display:inline-block;
+	padding: 4%;
+	margin: 4%;
+}
+.partecipazioniElement{
+	margin: 1%;
+	padding: 2%;
+	margin: 2%;
+}
+/* --- logical inline addPartecipazioni structure --- */
+/* --- logical inline prenotazioni structure --- */
+
+.prenotazioniPanel{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	vertical-align: middle;
+	justify-content: space-between;
+	border-radius: 7%;
+}
+.prenotazioniPanel .concertiPanel{
+	width: 50%;
+	display: inline;
+	margin: 3%;
+	border-radius: 7%;
+}
+.concertoIcon{
+	width: 70px;
+	height: 70px;
+	margin: 3%;
+}
+.concertoField{
+	margin: 3%;
+	max-inline-size: 120px;
+}
+.addSubtractIcon{
+	width: 30px;
+	height: 30px;
+	margin: 2%;
+}
+/* --- logical inline prenotazioni structure --- */
+/* --- base --- */
+body{
+	background-repeat: no-repeat;
+	background-image: url('/images/bg0.jpg');
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: center;
+}
+
+.bg1{
+	background-image: url('/images/bg1.jpg');
+}
+.bg2{
+	background-image: url('/images/bg2.jpg');
+}
+.bg3{
+	background-image: url('/images/bg3.jpg');
+}
+.bg4{
+	background-image: url('/images/bg4.jpg');
+}
+
+.logo {
+	width: 70px;
+	height: 70px;
+	padding-left: 5%;
+}
+.bigLogo {
+	width: 120px;
+	height: 120px;
+}
+
+.title{
+	font-family: "Concert One";
+	font-size: 55px;
+	text-decoration: underline;
+	margin-top: 1%;
+}
+
+.paragraph{
+	max-inline-size: 100%;
+}
+.strongParagraph{
+	font-size: 25px;
+}
+
+.btn {
+	color: black;
+	background-color: rgb(180, 159, 196);
+	padding: 8px;
+	font-size: 18;
+	margin-top: 12%;
+}
+
+.btn:focus {
+	color: white;
+	background-color: #ffdb7d;
+	font-size: 18;
+}
+
+.dropdown-content {
+  background-color: rgba(128, 128, 192, 1);;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  border-radius: 2%;
+}
+
+.buttonlist{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.footer {
+    border-top-style: outset;
+    margin-top: 2em;
+}
+/* --- base --- */
+/* --- see --- */
+.operePanel{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.operaPanel{
+	width: 30%;
+	margin-bottom: 2%;
+	padding: 1%;
+	background-color: rgb(215, 162, 21);
+}
+
+.titoloOpera{
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.descrizioneOpera{
+	font-size: 12px;
+}
+
+.imgConcerto{
+	max-height: 480px;
+	max-width: 240px;
+}
+
+.btnSort{
+	color: black;
+	background-color: #ffc629;
+	padding: 8px;
+	font-size: 18;
+	border-radius: 10%;
+	margin-bottom: 2%;
+	padding: 2%;
+}
+/* --- see --- */
+/* --- login --- */
+.loginFormFieldName {
+	font-style: italic;
+	font-size: 14px;
+	padding-right: 6px;
+}
+
+.loginFormFieldInput {
+	font-style: italic;
+	font-size: 14px;
+	padding-right: 6px;
+	width: 90%;
+}
+/* --- login --- */
+/* --- slider --- */
+
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background:rgba(128, 128, 192, 1);
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: rgb(203, 203, 228);
+  cursor: pointer;
+}
+/* --- slider --- */
+
+
+
+
+
+
+
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles(pageTitle=#{page.admin.addConcerto.head.title})"> </head>
+	<body>
+	
+		<div th:replace="fragments/base.html :: logo" />
+	    
+	    <div class="container">
+	    	
+	    	<div class="bggrey bordered panel">
+		    	<h1 class="title" th:text="#{admin.addConcerto.title}">Biglietteria</h1>
+		    	
+		    	<form th:action="@{/admin/addConcerto}" method="POST">
+                
+		    		<span class="loginFormFieldName" th:text="#{admin.addConcerto.field.nome}" />
+		    		<input type="text" class="loginFormFieldInput" th:field="${concerto.nome}" th:attr="placeholder=#{admin.addConcerto.hint.nome}" required /><br><br>
+		    		<p class="bgred bordered" th:each="error: ${#fields.errors('concerto.nome')}" th:text="${error}">Errore</p>
+		    		
+		    		<span class="loginFormFieldName" th:text="#{admin.addConcerto.field.descrizione}" />
+		    		<input type="text" class="loginFormFieldInput" th:field="${concerto.descrizione}" th:attr="placeholder=#{admin.addConcerto.hint.descrizione}" /><br><br>
+		    		<p class="bgred bordered" th:each="error: ${#fields.errors('concerto.descrizione')}" th:text="${error}">Errore</p>
+		    		
+		    		<span class="loginFormFieldName" th:text="#{admin.addConcerto.field.dataInizio}" />
+		    		<input type="date" class="loginFormFieldInput" th:field="${concerto.dataInizio}" th:attr="placeholder=#{admin.addConcerto.hint.dataInizio}" required /><br><br>
+		    		<p class="bgred bordered" th:each="error: ${#fields.errors('concerto.dataInizio')}" th:text="${error}">Errore</p>
+		    		
+		    		<span class="loginFormFieldName" th:text="#{admin.addConcerto.field.indirizzoLocation}" />
+		    		<input type="text" class="loginFormFieldInput" th:field="${concerto.indirizzoLocation}" th:attr="placeholder=#{admin.addConcerto.hint.indirizzoLocation}" required /><br><br>
+		    		<p class="bgred bordered" th:each="error: ${#fields.errors('concerto.indirizzoLocation')}" th:text="${error}">Errore</p>
+		    		
+		    		<span class="loginFormFieldName" th:text="#{admin.addConcerto.field.iconaLink}" />
+		    		<input type="text" class="loginFormFieldInput" th:field="${concerto.iconaLink}" th:attr="placeholder=#{admin.addConcerto.hint.iconaLink}" required /><br><br>
+		    		<p class="bgred bordered" th:each="error: ${#fields.errors('concerto.iconaLink')}" th:text="${error}">Errore</p>
+		    		
+		    		<div class="buttonlist">
+						<button type="submit" class="btn" th:text="#{admin.addBand.confirm}">Registra</button>
+					</div>
+					
+		    	</form>
+	   		</div>
+			
+			<div th:replace="fragments/base.html :: fondo" />
+	    </div>
+	    
+	</body>
+</html>

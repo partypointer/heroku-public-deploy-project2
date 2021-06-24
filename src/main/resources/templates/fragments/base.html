@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:fragment="headerfiles(pageTitle)">
+		<meta charset="UTF-8" />
+		<link rel="icon" th:href="@{/images/tickets.png}">
+		<link th:href="@{/css/my-style.css}" rel="stylesheet">
+		<title th:text="${pageTitle}">Museo degli Uffizi</title>
+		<script>
+			/* Cambia il parametro dell'url in base alla lingua '*/
+			function updateLanguage() {
+				var selectedLanguage = document.getElementById("language").value;
+				var currentURL = window.location.href;
+			  	var noLanguageParameterURL = "";
+			  
+			  	/* Trova l'indice al quale c'è il parametro lang */
+				var indexOfErrorParameter = currentURL.search("\\?error");
+			  	/* E' stato trovato un parametro error da eliminare! '*/
+				if(indexOfErrorParameter != -1){
+					/* Attenzione! Taglia fuori TUTTI i parametri successivi a error!*/
+					noLanguageParameterURL = currentURL.substring(0, indexOfErrorParameter);
+				}
+				
+			  	/* Trova l'indice al quale c'è il parametro lang */
+				var indexOfLanguageParameter = currentURL.search("\\?lang=");
+			  	
+			  	/* E' stato trovato un parametro language da eliminare! '*/
+				if(indexOfLanguageParameter != -1){
+					/* Attenzione! Taglia fuori TUTTI i parametri successivi a lang!*/
+					noLanguageParameterURL = currentURL.substring(0, indexOfLanguageParameter);
+				}
+			  
+			  	/* Ricarica la pagina con il parametro corrente */
+				window.location.replace(noLanguageParameterURL + "?lang=" + selectedLanguage);
+			}
+			
+			/* Fà tornare l'utente indietro di una pagina '*/
+			function goBack() {
+				window.history.back();
+			}
+		</script>
+	</head>
+	
+	<body>
+		<div th:fragment="logo">
+			<a th:href="@{/}">
+				<img class="logo" th:src="@{/images/logo3.png}" alt="logo">
+			</a>
+		</div>
+		
+		<div class="panel" th:fragment="fondo">
+			<a th:href="@{/}">
+				<button class="btn" th:text="#{footer.home}">Home</button>
+			</a>
+			<button class="btn" onClick="goBack()" th:text="#{footer.back}">Indietro</button>
+			<select class="dropdown-content" name="language" id="language" onchange="updateLanguage()">
+				<option value="IT" th:href="@{~(lang=IT)}" th:text="#{footer.language.choose}">Cambia la lingua</a>
+				<option value="US" th:href="@{~(lang=US)}" th:text="#{footer.language.en}">Inglese</a>
+				<option value="IT" th:href="@{~(lang=IT)}" th:text="#{footer.language.it}">Italiano</a>
+			</select>
+		</div>
+	</body>
+</html>

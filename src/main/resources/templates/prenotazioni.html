@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="it" xml:lang="it" xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles(pageTitle=#{page.prenotazioni.head.title})"> </head>
+	<body>
+	
+		<div th:replace="fragments/base.html :: logo" />
+	    
+	    <div class="container">
+		    <div class="prenotazioniPanel">
+		    	
+		    	<div class="bgorange bordered " th:object="${biglietti}">
+			    	<h3 class="title" th:text="#{prenotazioni.title.prenotazioniEffettuate}">Prenotazioni</h3>
+			    	<div class="" th:each="biglietto : ${biglietti}">
+						<span th:if="${#lists.isEmpty(biglietti)}" th:text="#{prenotazioni.title.biglietti.empty}">Non ci sono biglietti...</span>
+						<div> <!-- th:if="${biglietti != null #lists.size(biglietti) > 0}" , th:unless="${#lists.isEmpty(tblUserList)}" -->
+							<div class="bordered">
+								<div>
+									<img class="addSubtractIcon" th:src="@{/images/ticketIcon.png}" alt="icona">
+								</div>
+					            <span class="concertoField" th:text="${biglietto.tipologiaPosto.nome}">Nome Posto</span><br>
+					            <span class="concertoField" th:text="${biglietto.tipologiaPosto.concerto.nome}">Nome Concerto</span><br>
+					            <span class="concertoField" th:text="${biglietto.tipologiaPosto.concerto.dataInizio}">Nome Concerto</span><br>
+					            <span class="concertoField" th:text="${biglietto.code}">Via del Lorem Ipsum...</span><br>
+					            <div>
+									<a th:href="@{|/eliminaBiglietto/${biglietto.id}|}">
+									<img class="addSubtractIcon" th:src="@{/images/subtractIcon.png}" alt="icona">
+									</a>
+								</div>
+							</div>
+						</div>
+			        </div>
+		   		</div>
+		   		
+		    	<div class="bgpurple bordered ">
+			    	<h3 class="title" th:text="#{prenotazioni.title.concertiDisponibili}">Concerti Disponibili</h3>
+			    	<div class="" th:each="concerto : ${concerti}">
+						<div th:if="${#lists.size(concerti) > 0}">
+							<div>
+								<div>
+									<img class="bordered concertoIcon" th:src="@{${concerto.iconaLink}}" alt="icona">
+								</div>
+					            <span class="concertoField" th:text="${concerto.nome}">Concertone</span><br>
+					            <span class="concertoField" th:text="${concerto.dataInizio}">00:00:00</span><br>
+					            <span class="concertoField" th:text="${concerto.indirizzoLocation}">Via del Lorem Ipsum...</span><br>
+					            <span class="concertoField" th:if="${concerto.descrizione != null}" th:text="${concerto.descrizione}">Lorem Ipsum...</span><br>
+								<div>
+									<a th:href="@{|/addConcerto/${concerto.id}|}">
+									<img class="addSubtractIcon" th:src="@{/images/addIcon.png}" alt="icona">
+									</a>
+								</div>
+							</div>
+						</div>
+			        </div>
+		   		</div>
+				
+		    </div>
+			<div th:replace="fragments/base.html :: fondo" />
+	    </div>
+	</body>
+</html>

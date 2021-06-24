@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles(pageTitle=#{page.addBiglietto.head.title})"> </head>
+	<script>
+		function startTheJam(prezzoUnitario){
+			var slider = document.getElementById("slider");
+			var sliderValue = document.getElementById("sliderValue");
+			var prezzoTotale = document.getElementById("prezzoTotale");
+			var secretValue = document.getElementById("secretValue");
+			
+			/* Primo aggiornamento dei valori */
+			document.getElementById("sliderValue").textContent = slider.value;
+			document.getElementById("prezzoTotale").textContent = String(slider.value * prezzoUnitario) + "€";
+			document.getElementById("secretValue").textContent = slider.value;
+			
+			slider.addEventListener("change", function() {
+			    sliderValue.textContent = slider.value;
+			    prezzoTotale.textContent = String(slider.value * prezzoUnitario) + "€";
+			    document.getElementById("secretValue").value = slider.value;
+			}, false);
+		}
+	</script>
+	<body th:attr="onload='startTheJam(' + ${tipologiaPosto.prezzoUnitario} + ');'">
+	
+		<div th:replace="fragments/base.html :: logo" />
+	    
+	    <div class="container">
+	    	
+	    	<div class="bggrey bordered panel">
+		    	<h3 th:text="|#{addBiglietto.msg.one} ${tipologiaPosto.nome} #{addBiglietto.msg.two} ${tipologiaPosto.concerto.nome} #{addBiglietto.msg.three}|">Biglietteria</h3>
+		    	
+		    	<form th:action="@{|/concludiOrdine/${tipologiaPosto.id}|}" method="POST">
+                
+		    		<div class="slidecontainer">
+						<input type="range" min="1" th:attr="max=${maximumQuantity}" value="1" class="slider" id="slider" name="slider">
+					</div>
+					
+					<p th:text="#{addBiglietto.slider.quantity}">
+						<div id="sliderValue" name="sliderValue">1</div>
+					</p>
+					<p>
+						<div class="bgInstagramGradient bordered" id="prezzoTotale" name="prezzoTotale">1</div>
+					</p>
+					
+					<input type="number" id="secretValue" name="secretValue" value=1 hidden>
+		    		
+		    		<div class="buttonlist">
+						<button type="submit" class="btn" th:text="#{admin.addBand.confirm}">Registra</button>
+					</div>
+					
+		    	</form>
+	   		</div>
+			
+			<div th:replace="fragments/base.html :: fondo" />
+	    </div>
+	    
+	</body>
+</html>

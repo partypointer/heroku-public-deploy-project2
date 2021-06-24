@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles(pageTitle=#{page.registration.head.title})"> </head>
+	<body class="bg2">
+	
+		<div th:replace="fragments/base.html :: logo" />
+	    
+	    <div class="container">
+	    	
+	    	<div class="bgpurple bordered panel">
+		    	<h1 class="title" th:text="#{registration.title}">Biglietteria</h1>
+		    	
+		    	<form th:action="@{/register}" method="POST">
+                
+		    		<span class="loginFormFieldName" th:text="#{registration.field.name}" />
+		    		<input type="text" class="loginFormFieldInput" th:field="${user.nome}" th:attr="placeholder=#{registration.hint.name}" required /><br><br>
+		    		<p class="bgred bordered" th:each="error: ${#fields.errors('user.nome')}" th:text="${error}">Errore</p>
+		    		
+		    		<span class="loginFormFieldName" th:text="#{registration.field.surname}" />
+					<input type="text" class="loginFormFieldInput" th:field="${user.cognome}" th:attr="placeholder=#{registration.hint.surname}" required><br><br>
+		    		<p class="bgred bordered" th:each="error: ${#fields.errors('user.cognome')}" th:text="${error}">Errore</p>
+		    		
+		    		<span class="loginFormFieldName" th:text="#{registration.field.username}" />
+		    		<input type="text" class="loginFormFieldInput" th:field="${account.username}" th:attr="placeholder=#{registration.hint.username}" required><br><br>
+		    		<p class="bgred bordered" th:each="error: ${#fields.errors('account.username')}" th:text="${error}">Errore</p>
+		    		
+		    		<span class="loginFormFieldName" th:text="#{registration.field.password}" />
+					<input type="password" class="loginFormFieldInput" th:field="${account.password}" th:attr="placeholder=#{registration.hint.password}" required><br><br>
+		    		<p class="bgred bordered" th:each="error: ${#fields.errors('account.password')}" th:text="${error}">Errore</p>
+		    		
+		    		<span class="loginFormFieldName" th:text="#{registration.field.confermaPassword}" />
+					<input type="password" class="loginFormFieldInput" th:field="${account.confermaPassword}" th:attr="placeholder=#{registration.hint.confermaPassword}" required><br><br>
+		    		<p class="bgred bordered" th:each="error: ${#fields.errors('account.confermaPassword')}" th:text="${error}">Errore</p>
+		    		
+		    		
+		    		<div class="buttonlist">
+						<button type="submit" class="btn" th:text="#{registration.confirm}">Registra</button>
+					</div>
+					
+		    	</form>
+	   		</div>
+			
+			<div th:replace="fragments/base.html :: fondo" />
+	    </div>
+	    
+	</body>
+</html>
